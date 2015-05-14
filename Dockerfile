@@ -9,5 +9,6 @@ RUN apk add --update bash zip curl java-gcj-compat&& \
 
 WORKDIR /kafka
 EXPOSE 9092
-CMD ["bin/zookeeper-server-start.sh","config/zookeeper.properties"]
-CMD ["bin/zookeeper-server-start.sh","config/server.properties"]
+EXPOSE 2181
+ADD run.sh /kafka
+CMD ["run.sh"]
